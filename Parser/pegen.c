@@ -97,6 +97,7 @@ _PyPegen_insert_memo(Parser *p, int mark, int type, void *node)
     // Insert in front
     Memo *m = _PyArena_Malloc(p->arena, sizeof(Memo));
     if (m == NULL) {
+        p->error_indicator = 1;
         return -1;
     }
     m->type = type;
